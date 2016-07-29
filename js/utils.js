@@ -7,9 +7,7 @@ function panelsInit () {
 	// assign onclick to button-hide class
 	var showHideButtons = document.getElementsByClassName("button-hide");
 	for  (var i = 0; i < showHideButtons.length; i++){
-		showHideButtons[i].onclick = function (event) {
-			showHidePanels( event = event || window.event );
-		}
+		showHideButtons[i].onclick = showHidePanels;
 	}
 	
 	// Panel 1 setup
@@ -25,8 +23,8 @@ function panelsInit () {
 	document.getElementById("editable-text").value = "Lorem ipsum";
 }
 
-function showHidePanels (e) {
-	var el = e.target.parentNode.getElementsByClassName("hideable")[0].style;
+function showHidePanels () {
+	var el = this.parentNode.getElementsByClassName("hideable")[0].style;
 	if (el.display !== "none") {el.display = "none" }
 	else {el.display = ""}
 }
