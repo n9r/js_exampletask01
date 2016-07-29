@@ -4,11 +4,11 @@ window.onload = function () {
 
 function panelsInit () {
 	
-	// assign onclick to button-hide
+	// assign onclick to button-hide class
 	var showHideButtons = document.getElementsByClassName("button-hide");
 	for  (var i = 0; i < showHideButtons.length; i++){
-		showHideButtons[i].onclick = function (e) {
-			showHidePanels(e);
+		showHideButtons[i].onclick = function (event) {
+			showHidePanels( event = event || window.event );
 		}
 	}
 	
@@ -24,8 +24,6 @@ function panelsInit () {
 	// Panel 3 setup
 	document.getElementById("editable-text").value = "Lorem ipsum";
 }
-
-
 
 function showHidePanels (e) {
 	var el = e.target.parentNode.getElementsByClassName("hideable")[0].style;
